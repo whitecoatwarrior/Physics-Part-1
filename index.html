@@ -1,0 +1,2757 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electrostatics MCQs - MDCAT, HEC, AKU & Competition Exams</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- KaTeX for equations -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <style>
+        :root {
+            --primary: #1a56db;
+            --secondary: #0ea5e9;
+            --accent: #10b981;
+            --light: #f8fafc;
+            --dark: #1e3a8a;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --info: #3b82f6;
+            --background: #f0f9ff;
+            --card-bg: #ffffff;
+            --text-primary: #1e3a8a;
+            --text-secondary: #4b5563;
+            --border-radius: 5px;
+            --shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --transition: all 0.2s ease;
+            --compact-spacing: 3px;
+        }
+
+        .dark-mode {
+            --primary: #3b82f6;
+            --secondary: #0ea5e9;
+            --accent: #10b981;
+            --light: #1e293b;
+            --dark: #f1f5f9;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+            font-size: 8.1px;
+            line-height: 1.1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4.86px;
+        }
+
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6.48px;
+            border-radius: var(--border-radius);
+            margin-bottom: 6.48px;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 60%);
+            animation: pulse 15s infinite linear;
+        }
+
+        @keyframes pulse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 4.32px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo h1 {
+            font-size: 0.972rem;
+            font-weight: 800;
+            margin-bottom: 1.62px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo p {
+            font-weight: 500;
+            font-size: 0.486rem;
+            opacity: 0.9;
+        }
+
+        .header-content {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-content h1 {
+            font-size: 0.648rem;
+            margin-bottom: 4.32px;
+            color: #ffd700;
+        }
+
+        .header-content p {
+            font-size: 0.486rem;
+            line-height: 1.1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Hamburger Menu */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 15.12px;
+            height: 15.12px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            position: absolute;
+            top: 6.48px;
+            right: 6.48px;
+            z-index: 10;
+        }
+
+        .menu-toggle span {
+            width: 15.12px;
+            height: 1.62px;
+            background: white;
+            border-radius: 1.62px;
+            transition: var(--transition);
+            position: relative;
+            transform-origin: center;
+        }
+
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(3.24px, 3.24px);
+        }
+
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(4.32px, -4.32px);
+        }
+
+        /* Navigation Styles */
+        .nav-container {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 6.48px;
+            position: relative;
+        }
+
+        .nav-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4.86px;
+        }
+
+        .nav-header h2 {
+            font-size: 0.729rem;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: none;
+            width: 25.92px;
+            height: 12.96px;
+            border-radius: 12.96px;
+            cursor: pointer;
+            position: relative;
+            display: flex;
+            align-items: center;
+            padding: 1.62px;
+            box-shadow: var(--shadow);
+        }
+
+        .theme-toggle span {
+            width: 9.72px;
+            height: 9.72px;
+            border-radius: 50%;
+            background: var(--primary);
+            position: absolute;
+            transition: var(--transition);
+            left: 1.62px;
+        }
+
+        .theme-toggle.dark span {
+            left: calc(100% - 11.34px);
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2.43px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 2.43px;
+            padding: 4.05px 4.86px;
+            background: var(--card-bg);
+            border: none;
+            border-radius: var(--border-radius);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.486rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-btn.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Panel Styles */
+        .panel {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 4.86px;
+            box-shadow: var(--shadow);
+            margin-bottom: 6.48px;
+            transition: var(--transition);
+        }
+
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4.86px;
+            padding-bottom: 4.05px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .panel-title {
+            font-size: 0.648rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 2.43px;
+        }
+
+        .panel-actions {
+            display: flex;
+            gap: 2.43px;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.43px;
+            padding: 2.43px 4.86px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 0.486rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #0da271;
+            transform: translateY(-1px);
+        }
+
+        /* Card Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 4.86px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            margin-bottom: 4.86px;
+        }
+
+        .card:hover {
+            transform: translateY(-1.5px);
+            box-shadow: 0 2.43px 6.48px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 2.43px;
+            margin-bottom: 4.05px;
+            padding-bottom: 4.05px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 0.567rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Grid Layout */
+        .grid {
+            display: grid;
+            gap: 4.86px;
+        }
+
+        .grid-2 {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .grid-3 {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        /* Footer Styles */
+        footer {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 9.72px 0;
+            margin-top: auto;
+            font-size: 0.486rem;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 6.48px;
+            margin-top: 6.48px;
+        }
+
+        /* Animation Classes */
+        .fade-in {
+            animation: fadeIn 0.3s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6.48px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .slide-in {
+            animation: slideIn 0.3s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-6.48px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* MCQ Card Styles */
+        .mcq-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .mcq-info {
+            flex-grow: 1;
+            margin-bottom: 4.86px;
+        }
+
+        .mcq-id {
+            font-weight: 700;
+            font-size: 0.567rem;
+            color: var(--primary);
+            margin-bottom: 1.62px;
+        }
+
+        .mcq-subject {
+            font-size: 0.486rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.43px;
+        }
+
+        .mcq-chapter {
+            font-size: 0.486rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.43px;
+            font-weight: 600;
+        }
+
+        .mcq-details {
+            font-size: 0.405rem;
+            color: var(--text-secondary);
+            margin-bottom: 4.05px;
+        }
+
+        .start-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: var(--border-radius);
+            padding: 4.05px 6.48px;
+            font-weight: 600;
+            font-size: 0.486rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            text-decoration: none;
+            display: block;
+        }
+
+        .start-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+        }
+
+        /* Stats Panel */
+        .stats-panel {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(64.8px, 1fr));
+            gap: 4.05px;
+            margin-bottom: 4.86px;
+        }
+
+        .stat-item {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 4.05px;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .stat-value {
+            font-size: 0.729rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.405rem;
+            color: var(--text-secondary);
+        }
+
+        /* Tab Content */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Explanation Section Styles */
+        .explanation-section {
+            margin-bottom: 12.15px;
+            padding: 9.72px;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .explanation-header {
+            display: flex;
+            align-items: center;
+            gap: 6.48px;
+            margin-bottom: 6.48px;
+            padding-bottom: 4.86px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .explanation-icon {
+            width: 24.3px;
+            height: 24.3px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.81rem;
+        }
+
+        .explanation-title {
+            font-size: 0.729rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .explanation-content {
+            font-size: 0.567rem;
+            line-height: 1.4;
+            color: var(--text-primary);
+        }
+
+        .explanation-content h4 {
+            font-size: 0.648rem;
+            margin: 6.48px 0 3.24px;
+            color: var(--primary);
+        }
+
+        .explanation-content p {
+            margin-bottom: 4.86px;
+        }
+
+        .explanation-content ul, .explanation-content ol {
+            margin-left: 16.2px;
+            margin-bottom: 6.48px;
+        }
+
+        .explanation-content li {
+            margin-bottom: 2.43px;
+        }
+
+        .mechanism-diagram {
+            text-align: center;
+            margin: 9.72px 0;
+            padding: 6.48px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+        }
+
+        .key-concept {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3.24px solid var(--primary);
+            padding: 6.48px;
+            margin: 6.48px 0;
+            border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+
+        .key-concept-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 3.24px;
+            font-size: 0.567rem;
+        }
+
+        /* MCQ Detail Styles */
+        .mcq-detail-container {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 9.72px;
+            margin-bottom: 9.72px;
+            box-shadow: var(--shadow);
+        }
+
+        .mcq-question {
+            font-size: 0.648rem;
+            font-weight: 600;
+            margin-bottom: 6.48px;
+            color: var(--text-primary);
+            line-height: 1.4;
+        }
+
+        .mcq-options {
+            margin-bottom: 9.72px;
+        }
+
+        .mcq-option {
+            padding: 4.05px 6.48px;
+            margin-bottom: 3.24px;
+            border-radius: var(--border-radius);
+            background: var(--light);
+            font-size: 0.567rem;
+            cursor: pointer;
+            transition: var(--transition);
+            border-left: 2.43px solid transparent;
+        }
+
+        .mcq-option:hover {
+            background: rgba(26, 86, 219, 0.05);
+        }
+
+        .mcq-option.selected {
+            border-left-color: var(--primary);
+            background: rgba(26, 86, 219, 0.1);
+        }
+
+        .mcq-option.correct {
+            border-left-color: var(--success);
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .mcq-option.incorrect {
+            border-left-color: #dc3545;
+            background: rgba(220, 53, 69, 0.1);
+        }
+
+        .mcq-explanation {
+            margin-top: 9.72px;
+            padding: 6.48px;
+            border-radius: var(--border-radius);
+            background: var(--light);
+            font-size: 0.486rem;
+            line-height: 1.4;
+            display: none;
+        }
+
+        .mcq-explanation.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .explanation-title {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4.05px;
+            font-size: 0.567rem;
+        }
+
+        .mcq-actions {
+            display: flex;
+            gap: 4.86px;
+            margin-top: 6.48px;
+        }
+
+        /* Progress Tracking */
+        .progress-section {
+            margin-top: 9.72px;
+            padding: 6.48px;
+            background: var(--light);
+            border-radius: var(--border-radius);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 4.86px;
+        }
+
+        .progress-title {
+            font-size: 0.648rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .progress-stats {
+            font-size: 0.486rem;
+            color: var(--text-secondary);
+        }
+
+        .progress-bar {
+            height: 6.48px;
+            background: #e5e7eb;
+            border-radius: 3.24px;
+            overflow: hidden;
+            margin-bottom: 4.86px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--success);
+            border-radius: 3.24px;
+            transition: width 0.5s ease;
+        }
+
+        /* Welcome Animation */
+        .welcome-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #1e3a8a, #1a56db);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            opacity: 1;
+            transition: opacity 0.8s ease;
+        }
+
+        .welcome-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .welcome-content {
+            text-align: center;
+            color: white;
+            padding: 12.15px;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 9.72px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4.86px 16.2px rgba(0, 0, 0, 0.2);
+        }
+
+        .welcome-content h2 {
+            font-size: 1.458rem;
+            margin-bottom: 9.72px;
+            background: linear-gradient(90deg, #ffd700, #ffed4e, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 2.5s infinite;
+        }
+
+        .welcome-content p {
+            font-size: 0.648rem;
+            margin-bottom: 12.15px;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .welcome-logo {
+            font-size: 2.025rem;
+            margin-bottom: 12.15px;
+            color: #ffd700;
+            text-shadow: 0 0 12.15px rgba(255, 215, 0, 0.5);
+            animation: pulseWelcome 1.5s infinite;
+        }
+
+        @keyframes pulseWelcome {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -100% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 12.15px;
+            right: 12.15px;
+            background: #25D366;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.053rem;
+            box-shadow: 0 2.43px 6.48px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 3.24px 8.1px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Conceptual Q&A Styles */
+        .conceptual-qa {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 8.1px;
+            margin-bottom: 8.1px;
+            border-left: 3.24px solid var(--accent);
+        }
+
+        .qa-question {
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 4.05px;
+            font-size: 0.567rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 4.05px;
+        }
+
+        .qa-question i {
+            color: var(--accent);
+            margin-top: 1.62px;
+        }
+
+        .qa-answer {
+            font-size: 0.486rem;
+            line-height: 1.3;
+            color: var(--text-secondary);
+            padding-left: 12.15px;
+        }
+
+        .qa-answer strong {
+            color: var(--primary);
+        }
+
+        /* Equation styling */
+        .equation {
+            background: rgba(0, 0, 0, 0.05);
+            padding: 4.86px;
+            border-radius: var(--border-radius);
+            margin: 4.86px 0;
+            text-align: center;
+            font-family: 'KaTeX_Main', 'Times New Roman', serif;
+        }
+
+        .dark-mode .equation {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .katex {
+            font-size: 1em !important;
+        }
+
+        /* Exam Specific Info */
+        .exam-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(97.2px, 1fr));
+            gap: 4.86px;
+            margin-bottom: 9.72px;
+        }
+
+        .exam-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 6.48px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .exam-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3.24px 8.1px rgba(0, 0, 0, 0.1);
+        }
+
+        .exam-icon {
+            width: 24.3px;
+            height: 24.3px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 4.05px;
+            font-size: 0.81rem;
+        }
+
+        .exam-name {
+            font-weight: 700;
+            font-size: 0.486rem;
+            color: var(--primary);
+            margin-bottom: 1.62px;
+        }
+
+        .exam-desc {
+            font-size: 0.405rem;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: var(--card-bg);
+                border-radius: var(--border-radius);
+                box-shadow: var(--shadow);
+                padding: 4.86px;
+                z-index: 100;
+                width: 129.6px;
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: flex;
+            }
+            
+            .nav-btn {
+                width: 100%;
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 4.05px;
+            }
+            
+            header {
+                padding: 4.86px;
+            }
+            
+            .logo h1 {
+                font-size: 0.81rem;
+            }
+            
+            .panel {
+                padding: 4.86px;
+            }
+            
+            .btn {
+                width: 100%;
+                margin-bottom: 2.43px;
+            }
+            
+            .panel-actions {
+                flex-direction: column;
+            }
+            
+            .welcome-content {
+                padding: 9.72px;
+                margin: 6.48px;
+            }
+            
+            .welcome-content h2 {
+                font-size: 1.053rem;
+            }
+            
+            .welcome-content p {
+                font-size: 0.567rem;
+            }
+            
+            .welcome-logo {
+                font-size: 1.62rem;
+            }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 3.24px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--light);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 1.62px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Welcome Animation -->
+    <div class="welcome-overlay" id="welcome-overlay">
+        <div class="welcome-content scale-in">
+            <div class="welcome-logo">
+                <i class="fas fa-bolt"></i>
+            </div>
+            <h2>Electrostatics MCQs Portal</h2>
+            <p>Master Electrostatics for MDCAT, NUMS, HEC, AKU & Competition Exams with 80 MCQs and 30 Conceptual Q&A.</p>
+            <button class="btn btn-primary" id="start-btn" style="padding: 4.86px 9.72px; font-size: 0.648rem;">
+                Get Started <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a href="https://whatsapp.com/channel/0029VbBeueg0QeajGumGWb0f" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="container">
+        <header>
+            <button class="menu-toggle" id="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            
+            <div class="logo">
+                <h1>Electrostatics MCQs Portal</h1>
+                <p>MDCAT | NUMS | HEC | AKU | Competition Exam Preparation</p>
+            </div>
+            
+            <div class="header-content">
+                <h1>Comprehensive Electrostatics with 80 MCQs & 30 Conceptual Q&A</h1>
+                <p>Master key electrostatic concepts with detailed explanations, exceptional cases, and interactive questions</p>
+            </div>
+        </header>
+
+        <!-- Exam Specific Information -->
+        <div class="panel fade-in">
+            <div class="panel-header">
+                <h3 class="panel-title"><i class="fas fa-graduation-cap"></i> Exam Preparation Focus</h3>
+            </div>
+            <div class="exam-info">
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <div class="exam-name">MDCAT/NUMS</div>
+                    <div class="exam-desc">20% weightage in Physics Section</div>
+                </div>
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="exam-name">HEC Test</div>
+                    <div class="exam-desc">Graduate Assessment: Advanced problems</div>
+                </div>
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-hospital"></i>
+                    </div>
+                    <div class="exam-name">AKU Test</div>
+                    <div class="exam-desc">Medical Entry: Conceptual understanding</div>
+                </div>
+                <div class="exam-card">
+                    <div class="exam-icon">
+                        <i class="fas fa-trophy"></i>
+                    </div>
+                    <div class="exam-name">Competition</div>
+                    <div class="exam-desc">Olympiad Level: Exceptional cases</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-container">
+            <div class="nav-header">
+                <h2>Navigation</h2>
+                <button class="theme-toggle" id="theme-toggle">
+                    <span></span>
+                </button>
+            </div>
+            
+            <div class="main-nav" id="main-nav">
+                <button class="nav-btn active" data-tab="electrostatic">
+                    <i class="fas fa-atom"></i>
+                    <span>Electrostatic</span>
+                </button>
+                <button class="nav-btn" data-tab="charge">
+                    <i class="fas fa-bolt"></i>
+                    <span>Charge</span>
+                </button>
+                <button class="nav-btn" data-tab="coulombs">
+                    <i class="fas fa-magnet"></i>
+                    <span>Coulomb's Law</span>
+                </button>
+                <button class="nav-btn" data-tab="permittivity">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Permittivity</span>
+                </button>
+                <button class="nav-btn" data-tab="field">
+                    <i class="fas fa-radiation"></i>
+                    <span>Electric Field</span>
+                </button>
+                <button class="nav-btn" data-tab="progress">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Progress</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Stats Panel -->
+        <div class="stats-panel">
+            <div class="stat-item">
+                <div class="stat-value" id="total-mcqs">80</div>
+                <div class="stat-label">Total MCQs</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="conceptual-qa">30</div>
+                <div class="stat-label">Conceptual Q&A</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="completed-mcqs">0</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-value" id="accuracy">0%</div>
+                <div class="stat-label">Accuracy</div>
+            </div>
+        </div>
+
+        <!-- Electrostatic Tab -->
+        <div class="tab-content active" id="electrostatic-tab">
+            <!-- Explanation Section -->
+            <div class="explanation-section fade-in">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-atom"></i>
+                    </div>
+                    <div class="explanation-title">Electrostatics: Fundamental Concepts</div>
+                </div>
+                
+                <div class="explanation-content">
+                    <h4>What is Electrostatics?</h4>
+                    <p>Electrostatics is the study of <strong>electric charges at rest</strong>. Unlike current electricity which deals with moving charges, electrostatics focuses on stationary charges and the forces, fields, and potentials they create. This forms the foundation for understanding capacitors, dielectrics, and many electrical devices.</p>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Key Concept: Two Types of Charges</div>
+                        <p>There exist two fundamental types of electric charge: <strong>positive</strong> (proton) and <strong>negative</strong> (electron). The fundamental law: Like charges repel, unlike charges attract. The elementary charge is $e = 1.602 \times 10^{-19}$ C.</p>
+                    </div>
+                    
+                    <h4>MDCAT/NUMS Focus Areas:</h4>
+                    <ul>
+                        <li>Charge quantization and conservation problems</li>
+                        <li>Gold leaf electroscope working principle</li>
+                        <li>Methods of charging (friction, conduction, induction)</li>
+                        <li>Solving problems with multiple charged objects</li>
+                    </ul>
+                    
+                    <h4>Imaginary Cases for Competition Exams:</h4>
+                    <ol>
+                        <li><strong>Charge on a moving ring:</strong> If a uniformly charged ring rotates about its axis, the charge density remains constant but current is created.</li>
+                        <li><strong>Charge distribution on irregular shapes:</strong> On conductors, charge density is highest at sharp points (lightning rod principle).</li>
+                        <li><strong>Charge in non-uniform fields:</strong> A dipole in non-uniform field experiences both torque and net force.</li>
+                    </ol>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Exceptional Case: Charge Shielding</div>
+                        <p>Faraday cage effect: In a hollow conductor, external electric fields cannot penetrate the interior. This is why cars are safe during lightning and sensitive equipment is placed in metal enclosures. The electric field inside a hollow conductor is zero regardless of external field strength.</p>
+                    </div>
+                    
+                    <div class="equation">
+                        $\text{Charge Quantization: } Q = \pm ne \quad \text{where } n = 1, 2, 3, \dots$
+                    </div>
+                    
+                    <h4>Direct MCQ Points:</h4>
+                    <ol>
+                        <li>Charge is conserved in all physical processes</li>
+                        <li>Charge is quantized in multiples of $e$</li>
+                        <li>Charge is invariant (doesn't change with velocity)</li>
+                        <li>Charge is additive (total charge = algebraic sum)</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conceptual Q&A Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-lightbulb"></i> Conceptual Understanding (3/30)</h3>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why can't we have a fractional electric charge in isolation?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Due to charge quantization principle. All observable charges are integer multiples of the elementary charge $e = 1.602 \times 10^{-19}$ C. Quarks have fractional charges ($\pm\frac{1}{3}e, \pm\frac{2}{3}e$) but are always confined within hadrons by the strong nuclear force, so isolated fractional charges are not observed in nature.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> How does a gold leaf electroscope detect charge?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> When a charged object touches the metal cap, charge distributes over the electroscope. The metal stem and gold leaves acquire like charges, causing electrostatic repulsion between them. The angle of divergence indicates the amount of charge. For induction detection: bringing a charged rod near causes temporary charge separation, touching the cap while rod is near grounds it, removing the ground then rod leaves it permanently charged.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What happens when a charged insulator is brought near an uncharged conductor?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Charge induction occurs. Electrons in the conductor redistribute: opposite charge accumulates near the insulator, like charge moves away. If the conductor is grounded while the insulator is near, electrons flow to/from ground, leaving the conductor with net charge opposite to the insulator when ground connection is removed first, then insulator removed.</div>
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Electrostatics MCQs Progress</div>
+                    <div class="progress-stats"><span id="electrostatic-completed">0</span>/8 completed</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="electrostatic-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- MCQs Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-atom"></i> Electrostatics MCQs (8)</h3>
+                    <div class="panel-actions">
+                        <button class="btn btn-primary" id="refresh-electrostatic">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2" id="electrostatic-mcqs-container">
+                    <!-- MCQs will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Charge Tab -->
+        <div class="tab-content" id="charge-tab">
+            <!-- Explanation Section -->
+            <div class="explanation-section fade-in">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="explanation-title">Electric Charge: Properties and Measurement</div>
+                </div>
+                
+                <div class="explanation-content">
+                    <h4>Properties of Electric Charge:</h4>
+                    <ol>
+                        <li><strong>Quantization:</strong> $Q = ne$, where $n = \pm1, \pm2, \pm3, \dots$</li>
+                        <li><strong>Conservation:</strong> Total charge in isolated system is constant</li>
+                        <li><strong>Additivity:</strong> Total charge = algebraic sum of individual charges</li>
+                        <li><strong>Invariance:</strong> Charge is independent of frame of reference</li>
+                    </ol>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Key Concept: Charge Invariance</div>
+                        <p>Unlike mass, electric charge is invariant under Lorentz transformations. A charged particle has the same charge regardless of its speed. This is a fundamental postulate of relativity confirmed by experiments. Mass increases with velocity, but charge remains constant.</p>
+                    </div>
+                    
+                    <h4>Charge Density Concepts:</h4>
+                    <div class="equation">
+                        $\text{Linear: } \lambda = \frac{Q}{L} \quad \text{Surface: } \sigma = \frac{Q}{A} \quad \text{Volume: } \rho = \frac{Q}{V}$
+                    </div>
+                    
+                    <h4>HEC/AKU Level Problems:</h4>
+                    <ul>
+                        <li>Charge distribution on irregular conductors</li>
+                        <li>Charge transfer between identical/different spheres</li>
+                        <li>Charge conservation in nuclear reactions</li>
+                        <li>Millikan's oil drop experiment calculations</li>
+                    </ul>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Exceptional Case: Charge on Sharp Points</div>
+                        <p>On a conductor, charge density is inversely proportional to radius of curvature. Sharp points have very high charge density, leading to corona discharge. This principle is used in lightning rods to safely discharge clouds and in electrostatic precipitators to remove dust particles.</p>
+                    </div>
+                    
+                    <h4>Direct MCQ Points:</h4>
+                    <ol>
+                        <li>1 Coulomb = charge of $6.25 \times 10^{18}$ electrons</li>
+                        <li>Electron charge: $-1.6 \times 10^{-19}$ C</li>
+                        <li>Proton charge: $+1.6 \times 10^{-19}$ C</li>
+                        <li>Neutron charge: 0 (electrically neutral)</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conceptual Q&A Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-lightbulb"></i> Conceptual Understanding (6/30)</h3>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why does charge accumulate at sharp points on a conductor?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Due to the inverse relationship between charge density and radius of curvature. For a conductor at constant potential $V$, surface charge density $\sigma = \epsilon_0 E$. Electric field $E$ is maximum at points with smallest radius of curvature (sharp points). Thus $\sigma$ is highest at sharp points, leading to intense electric fields that can ionize air molecules causing corona discharge.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Can a body have charge without mass?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> No. All known charged particles (electrons, protons, ions) have mass. Photons are massless but carry no electric charge. In quantum field theory, charge is a property of particles with mass (except hypothetical magnetic monopoles which haven't been observed). Charge carriers require mass to exist as particles.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why is charge considered quantized but continuous in macroscopic physics?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> At microscopic level, charge comes in discrete packets of $e = 1.6 \times 10^{-19}$ C. However, macroscopic objects contain billions of electrons, so charge appears continuous. For example, 1 C contains $6.25 \times 10^{18}$ electrons, making step changes imperceptible, allowing us to treat charge as continuous in circuit theory.</div>
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Charge MCQs Progress</div>
+                    <div class="progress-stats"><span id="charge-completed">0</span>/7 completed</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="charge-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- MCQs Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-bolt"></i> Charge MCQs (7)</h3>
+                    <div class="panel-actions">
+                        <button class="btn btn-primary" id="refresh-charge">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2" id="charge-mcqs-container">
+                    <!-- MCQs will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Coulomb's Law Tab -->
+        <div class="tab-content" id="coulombs-tab">
+            <!-- Explanation Section -->
+            <div class="explanation-section fade-in">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-magnet"></i>
+                    </div>
+                    <div class="explanation-title">Coulomb's Law: Force Between Charges</div>
+                </div>
+                
+                <div class="explanation-content">
+                    <h4>Coulomb's Law Equation:</h4>
+                    <div class="equation">
+                        $\vec{F} = k \frac{q_1 q_2}{r^2} \hat{r} \quad \text{where } k = \frac{1}{4\pi\epsilon_0} = 9 \times 10^9 \text{ N·m}^2/\text{C}^2$
+                    </div>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Key Concept: Vector Nature of Coulomb Force</div>
+                        <p>Coulomb force is a vector quantity. For multiple charges, use vector addition: $\vec{F}_{\text{net}} = \sum \vec{F}_i$. The principle of superposition applies: force between any two charges is unaffected by the presence of other charges. Always calculate forces separately then add vectorially.</p>
+                    </div>
+                    
+                    <h4>Coulomb's Law in Material Media:</h4>
+                    <div class="equation">
+                        $\vec{F}_{\text{medium}} = \frac{1}{4\pi\epsilon} \frac{q_1 q_2}{r^2} \hat{r} = \frac{1}{4\pi\epsilon_0\epsilon_r} \frac{q_1 q_2}{r^2} \hat{r} = \frac{\vec{F}_{\text{vacuum}}}{\epsilon_r}$
+                    </div>
+                    
+                    <h4>Effect Analysis (Competition Focus):</h4>
+                    <p>If $F = k\frac{q_1q_2}{r^2}$, then:</p>
+                    <ul>
+                        <li>If $q_1$ doubles: $F$ doubles (linear relationship)</li>
+                        <li>If $r$ halves: $F$ quadruples (inverse square law)</li>
+                        <li>If medium changes from air ($\epsilon_r \approx 1$) to water ($\epsilon_r \approx 80$): $F$ reduces to $\frac{1}{80}$</li>
+                        <li>If both charges reverse sign: $F$ direction reverses but magnitude unchanged</li>
+                    </ul>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Exceptional Case: Comparing Coulomb and Gravitational Forces</div>
+                        <p>For two protons: $\frac{F_e}{F_g} = \frac{kq^2}{Gm^2} \approx 1.24 \times 10^{36}$. Electrostatic force is enormously stronger than gravity at atomic scales. This explains why chemical bonds (electrostatic) dominate over gravitational attraction in molecules. Gravity becomes significant only for astronomical masses.</p>
+                    </div>
+                    
+                    <h4>MDCAT/NUMS Problem Solving Strategy:</h4>
+                    <ol>
+                        <li>Convert all units to SI (Coulombs, meters)</li>
+                        <li>Use $k = 9 \times 10^9$ N·m²/C²</li>
+                        <li>For symmetrical arrangements, use symmetry to cancel components</li>
+                        <li>For equilibrium problems, set net force = 0</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conceptual Q&A Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-lightbulb"></i> Conceptual Understanding (12/30)</h3>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why is Coulomb's law called an inverse square law?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Because force varies inversely with square of distance: $F \propto 1/r^2$. This arises from geometry: electric field lines spread uniformly in all directions over sphere surface area $4\pi r^2$, so flux density $\propto 1/r^2$. Similar to gravity and light intensity. If it were $1/r^3$, field lines wouldn't conserve; if $1/r$, they'd converge.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Does Coulomb's law hold for charges in motion?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> No. Coulomb's law is strictly for stationary charges. For moving charges, magnetic fields are generated and the complete electromagnetic interaction is described by Lorentz force law: $\vec{F} = q(\vec{E} + \vec{v} \times \vec{B})$. At low speeds ($v \ll c$), Coulomb's law is approximately valid, but relativistic corrections are needed as $v$ approaches light speed.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What happens to Coulomb force if dielectric constant increases?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Force decreases inversely with dielectric constant: $F_{\text{medium}} = F_{\text{vacuum}}/\epsilon_r$. Dielectric material polarizes, creating bound charges that produce opposing electric field reducing net field between charges. In water ($\epsilon_r \approx 80$), force is only 1.25% of vacuum value, explaining why salt dissolves easily.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why can we use superposition principle for Coulomb forces?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Because electric force is linear in charge. The force on a charge due to multiple charges is vector sum of forces from each charge individually. This works because electric fields add vectorially and $F = qE$. Superposition fails only in extreme conditions (very high fields causing non-linear media or quantum mechanical effects).</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is the range of Coulomb force?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Coulomb force has infinite range in theory ($1/r^2$ never becomes zero). However, in practice, it's effectively shielded in conductors (screened by mobile charges) and neutralized in bulk matter by opposite charges. In vacuum, it extends infinitely but becomes immeasurably small at large distances. Compare with nuclear force (range $10^{-15}$ m) and gravity (infinite range).</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> How does Coulomb's law verify Newton's third law?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Coulomb force between two charges is equal in magnitude and opposite in direction: $\vec{F}_{12} = -\vec{F}_{21}$. This satisfies Newton's third law. The forces act along the line joining the charges. This holds true even if charges are moving slowly, but for rapidly moving charges, magnetic forces complicate the picture.</div>
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Coulomb's Law MCQs Progress</div>
+                    <div class="progress-stats"><span id="coulombs-completed">0</span>/20 completed</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="coulombs-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- MCQs Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-magnet"></i> Coulomb's Law MCQs (20)</h3>
+                    <div class="panel-actions">
+                        <button class="btn btn-primary" id="refresh-coulombs">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2" id="coulombs-mcqs-container">
+                    <!-- MCQs will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Permittivity Tab -->
+        <div class="tab-content" id="permittivity-tab">
+            <!-- Explanation Section -->
+            <div class="explanation-section fade-in">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-sliders-h"></i>
+                    </div>
+                    <div class="explanation-title">Permittivity & Dielectrics</div>
+                </div>
+                
+                <div class="explanation-content">
+                    <h4>Relative Permittivity (Dielectric Constant):</h4>
+                    <div class="equation">
+                        $\epsilon_r = \frac{\epsilon}{\epsilon_0} = \frac{C_{\text{medium}}}{C_{\text{vacuum}}} = \frac{F_{\text{vacuum}}}{F_{\text{medium}}}$
+                    </div>
+                    <p>Where $\epsilon_r \geq 1$ for all materials. It measures how much a material reduces electric field compared to vacuum.</p>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Key Concept: Polarization Mechanism</div>
+                        <p>Dielectrics reduce electric field through polarization: 1) <strong>Electronic polarization</strong> (electron cloud distortion), 2) <strong>Ionic polarization</strong> (ion displacement in ionic crystals), 3) <strong>Orientation polarization</strong> (dipole alignment in polar molecules). Total polarization $P = \epsilon_0\chi_e E$, where $\chi_e$ is electric susceptibility.</p>
+                    </div>
+                    
+                    <h4>Competition Exam Tricks:</h4>
+                    <ol>
+                        <li>If dielectric fills half the space between charges, effective $\epsilon_r$ is average of two regions</li>
+                        <li>For dielectric slab between charges, force reduces by $\epsilon_r$ only if slab fills entire space</li>
+                        <li>Dielectric breakdown occurs when $E > E_{\text{max}}$ for material</li>
+                        <li>$\epsilon_r$ for water is 80 but reduces to 1.8 at optical frequencies</li>
+                    </ol>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Exceptional Case: Frequency Dependence</div>
+                        <p>$\epsilon_r$ decreases with increasing frequency. At low frequencies, all polarization mechanisms work. At radio frequencies, dipoles can't follow field (orientation polarization stops). At optical frequencies, only electronic polarization remains. This explains why water $\epsilon_r$ drops from 80 (DC) to 1.8 (visible light).</p>
+                    </div>
+                    
+                    <h4>Direct MCQ Points:</h4>
+                    <ol>
+                        <li>Vacuum permittivity: $\epsilon_0 = 8.85 \times 10^{-12}$ C²/N·m²</li>
+                        <li>$\epsilon_r$ (air) ≈ 1.0006 (usually taken as 1)</li>
+                        <li>$\epsilon_r$ (water) ≈ 80</li>
+                        <li>$\epsilon_r$ (glass) ≈ 5-10</li>
+                        <li>$\epsilon_r$ (paper) ≈ 3-4</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conceptual Q&A Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-lightbulb"></i> Conceptual Understanding (15/30)</h3>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why does force between charges decrease in a dielectric medium?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Dielectric polarizes, creating bound charges on surfaces. These bound charges produce an internal field $E_p$ opposing the external field $E_0$. Net field $E = E_0 - E_p = E_0/\epsilon_r$, so force $F = qE = qE_0/\epsilon_r = F_0/\epsilon_r$. Bound charges partially cancel the free charges' effect, reducing net force.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Can relative permittivity be less than 1?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Normally no for ordinary materials, as $\epsilon_r = 1 + \chi_e$ and electric susceptibility $\chi_e \geq 0$. However, in metamaterials and plasma at certain frequencies, effective $\epsilon_r$ can be negative, enabling unusual effects like negative refraction and perfect lensing. Also, in ferroelectric materials near phase transition, $\epsilon_r$ can be very high (>1000).</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is the difference between dielectric constant and dielectric strength?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> <strong>Dielectric constant</strong> ($\epsilon_r$) measures polarization ability (how much it reduces electric field). <strong>Dielectric strength</strong> measures maximum electric field before breakdown (ionization). Example: Air has $\epsilon_r \approx 1$, strength = 3 MV/m; Transformer oil: $\epsilon_r \approx 2.2$, strength = 15 MV/m. A good dielectric needs high $\epsilon_r$ AND high strength.</div>
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Permittivity MCQs Progress</div>
+                    <div class="progress-stats"><span id="permittivity-completed">0</span>/10 completed</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="permittivity-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- MCQs Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-sliders-h"></i> Permittivity MCQs (10)</h3>
+                    <div class="panel-actions">
+                        <button class="btn btn-primary" id="refresh-permittivity">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2" id="permittivity-mcqs-container">
+                    <!-- MCQs will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Electric Field Tab -->
+        <div class="tab-content" id="field-tab">
+            <!-- Explanation Section -->
+            <div class="explanation-section fade-in">
+                <div class="explanation-header">
+                    <div class="explanation-icon">
+                        <i class="fas fa-radiation"></i>
+                    </div>
+                    <div class="explanation-title">Electric Field: Concepts and Applications</div>
+                </div>
+                
+                <div class="explanation-content">
+                    <h4>Electric Field Intensity:</h4>
+                    <div class="equation">
+                        $\vec{E} = \frac{\vec{F}}{q_0} \quad \text{or} \quad E = \frac{kq}{r^2} \ \text{(point charge)}$
+                    </div>
+                    <p>Electric field is a vector field representing force per unit charge. Units: N/C or V/m.</p>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Key Concept: Electric Field Lines</div>
+                        <p>Electric field lines: 1) Start on positive charges, end on negative charges, 2) Density proportional to field strength, 3) Never intersect, 4) Direction is tangent to field, 5) Perpendicular to conductor surfaces. Number of lines from charge $q$ is proportional to $q$.</p>
+                    </div>
+                    
+                    <h4>Electric Field for Various Charges:</h4>
+                    <div class="equation">
+                        $\text{Point charge: } E = \frac{kq}{r^2}$
+                    </div>
+                    <div class="equation">
+                        $\text{Infinite line charge: } E = \frac{\lambda}{2\pi\epsilon_0 r}$
+                    </div>
+                    <div class="equation">
+                        $\text{Infinite sheet: } E = \frac{\sigma}{2\epsilon_0}$
+                    </div>
+                    <div class="equation">
+                        $\text{Between parallel plates: } E = \frac{\sigma}{\epsilon_0}$
+                    </div>
+                    
+                    <h4>Electric Field in Material Media:</h4>
+                    <div class="equation">
+                        $\vec{D} = \epsilon_0\vec{E} + \vec{P} = \epsilon\vec{E} = \epsilon_0\epsilon_r\vec{E}$
+                    </div>
+                    <p>Where $\vec{D}$ is electric displacement field (C/m²), independent of medium. $\vec{P}$ is polarization density.</p>
+                    
+                    <div class="key-concept">
+                        <div class="key-concept-title">Exceptional Case: Field Inside Conductor</div>
+                        <p>In electrostatic equilibrium, electric field inside conductor is zero. Any initial field causes charge redistribution until internal field cancels. Field exists only at surface, normal to surface, with magnitude $E = \sigma/\epsilon_0$. This is why hollow conductors shield interiors (Faraday cage).</p>
+                    </div>
+                    
+                    <h4>Direct MCQ Points:</h4>
+                    <ol>
+                        <li>Field due to point charge: radial, $E \propto 1/r^2$</li>
+                        <li>Field due to infinite line: radial, $E \propto 1/r$</li>
+                        <li>Field due to infinite sheet: uniform, constant</li>
+                        <li>Field inside spherical shell: zero</li>
+                        <li>Field inside solid charged sphere: $E \propto r$</li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Conceptual Q&A Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-lightbulb"></i> Conceptual Understanding (30/30)</h3>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why are electric field lines perpendicular to conductor surface?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Because conductor surface is equipotential. If field had tangential component, it would do work moving charge along surface, changing potential. Since $E = -\nabla V$, and $V$ is constant on surface, $\nabla V$ has no tangential component, so $E$ is purely normal. Any tangential component would cause current flow until surface becomes equipotential.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is the physical significance of electric field lines density?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Number of field lines per unit area crossing normally is proportional to electric field magnitude. If 10 lines cross 1 m² at point A and 40 lines cross 1 m² at point B (same orientation), then $E_B = 4E_A$. This is a visualization tool - lines aren't physically real but help visualize field strength and direction. More lines = stronger field.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Can electric field exist in a conductor in electrostatic equilibrium?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> No. In electrostatic equilibrium, electric field inside conductor is zero. Any initial field causes charge redistribution until internal field cancels. Field exists only at surface, normal to surface, with magnitude $E = \sigma/\epsilon_0$. If field existed inside, free electrons would move until they cancel it (takes ~$10^{-19}$ s in copper).</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What happens to electric field if all dimensions of a system are doubled?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Depends on charge distribution. For point charge: $E \propto 1/r^2$, so at doubled distance, field becomes 1/4. For infinite line: $E \propto 1/r$, becomes 1/2. For infinite plane: $E$ constant, unchanged. For dipole: $E \propto 1/r^3$, becomes 1/8. For spherical charge: inside sphere $E \propto r$, doubles; outside $E \propto 1/r^2$, becomes 1/4.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why can't electric field lines form closed loops in electrostatics?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Because electrostatic field is conservative: $\oint \vec{E} \cdot d\vec{l} = 0$. If field lines formed closed loop, integrating along loop would give nonzero work done per unit charge, violating conservativeness. In changing magnetic fields (electrodynamics), field lines can form closed loops ($\nabla \times \vec{E} \neq 0$).</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is the difference between electric field and electric flux?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> <strong>Electric field</strong> ($\vec{E}$) is vector quantity (force per unit charge) at a point. <strong>Electric flux</strong> ($\Phi_E$) is scalar quantity (field lines passing through area): $\Phi_E = \vec{E} \cdot \vec{A} = EA\cos\theta$. Flux measures "flow" of field through surface. Gauss's law: total flux through closed surface = $q_{\text{enc}}/\epsilon_0$.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> How does electric field inside dielectric compare to external field?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Electric field inside dielectric is reduced: $E = E_0/\epsilon_r$, where $E_0$ is external field in vacuum. Dielectric polarization creates bound charges producing opposing field. However, displacement field $\vec{D} = \epsilon_0\epsilon_r\vec{E}$ remains continuous across boundaries if no free charges. In capacitors, dielectric reduces voltage for same charge or increases charge for same voltage.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is zero field point and how to find it?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Zero field point is where net electric field is zero. For two point charges $q_1$ and $q_2$ separated by $d$, along line joining them: $kq_1/x^2 = kq_2/(d-x)^2$. Solve for $x$. For like charges, zero point lies between them if charges equal, closer to smaller charge if unequal. For unlike charges, zero point lies outside line, closer to smaller charge magnitude.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why does electric field become infinite at point charge?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Mathematically, $E = kq/r^2 \to \infty$ as $r \to 0$. Physically, point charge is idealization - real charges have finite size. At atomic distances (~$10^{-10}$ m), quantum effects dominate and classical electrostatics breaks down. Also, measuring field arbitrarily close to charge is impossible practically. The infinity indicates singularity in theory at $r=0$.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What are properties of electric field intensity?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> 1) <strong>Vector quantity</strong> with magnitude and direction. 2) <strong>Conservative</strong>: $\oint \vec{E} \cdot d\vec{l} = 0$. 3) <strong>Obeys superposition</strong>: $\vec{E}_{\text{total}} = \sum \vec{E}_i$. 4) <strong>Field lines never intersect</strong> (unique direction at each point). 5) <strong>Proportional to force</strong> on test charge: $\vec{F} = q\vec{E}$. 6) <strong>Continuous</strong> except at point charges or surface charges.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> How to calculate electric field for continuous charge distributions?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> For continuous distributions (line, surface, volume), divide into small elements $dq$, calculate field $dE = k dq/r^2$, then integrate. However, for symmetric distributions, use <strong>Gauss's law</strong>: $\oint \vec{E} \cdot d\vec{A} = q_{\text{enc}}/\epsilon_0$. Choose Gaussian surface matching symmetry: sphere for spherical, cylinder for linear, pillbox for planar symmetry.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What happens when dielectric is placed in electric field?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Dielectric polarizes: molecules develop induced dipoles (non-polar) or align existing dipoles (polar). This creates bound surface charges producing field opposing external field. Net field reduces to $E = E_0/\epsilon_r$. If dielectric completely fills capacitor, capacitance increases $\epsilon_r$ times. If dielectric doesn't fill completely, effective $\epsilon_r$ is weighted average.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> Why is electric field uniform between parallel plates?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> For infinite parallel plates with equal opposite charge densities $\pm\sigma$, field is uniform $E = \sigma/\epsilon_0$ between plates and zero outside. For finite plates, field is nearly uniform away from edges if plate separation $\ll$ plate dimensions. At edges, field lines bulge out (fringing). In practice, plates are made large compared to separation to maximize uniform region.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> What is electric displacement field D and why is it useful?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> Electric displacement $\vec{D} = \epsilon_0\vec{E} + \vec{P}$ is useful because $\nabla \cdot \vec{D} = \rho_f$ (free charge density only, not bound charges). $\vec{D}$ is continuous across dielectric interfaces if no free surface charge. In capacitors, $D = \sigma_f$ (free charge density on plates). $\vec{D}$ helps solve problems with dielectrics without calculating bound charges explicitly.</div>
+                </div>
+                <div class="conceptual-qa">
+                    <div class="qa-question"><i class="fas fa-question-circle"></i> How does electric field vary inside and outside charged sphere?</div>
+                    <div class="qa-answer"><strong>Answer:</strong> For solid sphere radius $R$, total charge $Q$: <strong>Inside</strong> ($r < R$): $E = \frac{kQr}{R^3}$ (linear with $r$, zero at center). <strong>At surface</strong> ($r = R$): $E = \frac{kQ}{R^2}$. <strong>Outside</strong> ($r > R$): $E = \frac{kQ}{r^2}$ (like point charge). For hollow shell: $E=0$ inside ($r<R$), $E=kQ/r^2$ outside. These results come from Gauss's law and symmetry.</div>
+                </div>
+            </div>
+            
+            <!-- Progress Section -->
+            <div class="progress-section">
+                <div class="progress-header">
+                    <div class="progress-title">Electric Field MCQs Progress</div>
+                    <div class="progress-stats"><span id="field-completed">0</span>/35 completed</div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="field-progress" style="width: 0%"></div>
+                </div>
+            </div>
+            
+            <!-- MCQs Section -->
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-radiation"></i> Electric Field MCQs (35)</h3>
+                    <div class="panel-actions">
+                        <button class="btn btn-primary" id="refresh-field">
+                            <i class="fas fa-sync-alt"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="grid grid-2" id="field-mcqs-container">
+                    <!-- MCQs will be populated here by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Progress Tracking Tab -->
+        <div class="tab-content" id="progress-tab">
+            <div class="panel fade-in">
+                <div class="panel-header">
+                    <h3 class="panel-title"><i class="fas fa-chart-line"></i> Progress Tracking</h3>
+                </div>
+                
+                <div class="explanation-section">
+                    <div class="explanation-header">
+                        <div class="explanation-icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="explanation-title">Your Learning Progress</div>
+                    </div>
+                    
+                    <div class="explanation-content">
+                        <p>Track your progress through 80 MCQs and 30 Conceptual Q&A. Detailed breakdown:</p>
+                        
+                        <div class="progress-section" style="margin-top: 12.15px;">
+                            <div class="progress-header">
+                                <div class="progress-title">Overall Progress</div>
+                                <div class="progress-stats"><span id="overall-completed">0</span>/80 completed</div>
+                            </div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="overall-progress" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 12.15px;">
+                            <div style="margin-bottom: 9.72px;">
+                                <div class="progress-header">
+                                    <div class="progress-title">Electrostatic Fundamentals</div>
+                                    <div class="progress-stats"><span id="electrostatic-summary">0</span>/8</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="electrostatic-summary-progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 9.72px;">
+                                <div class="progress-header">
+                                    <div class="progress-title">Charge Properties</div>
+                                    <div class="progress-stats"><span id="charge-summary">0</span>/7</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="charge-summary-progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 9.72px;">
+                                <div class="progress-header">
+                                    <div class="progress-title">Coulomb's Law</div>
+                                    <div class="progress-stats"><span id="coulombs-summary">0</span>/20</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="coulombs-summary-progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 9.72px;">
+                                <div class="progress-header">
+                                    <div class="progress-title">Permittivity</div>
+                                    <div class="progress-stats"><span id="permittivity-summary">0</span>/10</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="permittivity-summary-progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: 9.72px;">
+                                <div class="progress-header">
+                                    <div class="progress-title">Electric Field</div>
+                                    <div class="progress-stats"><span id="field-summary">0</span>/35</div>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="field-summary-progress" style="width: 0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 12.15px; text-align: center;">
+                            <button class="btn btn-primary" id="reset-progress">
+                                <i class="fas fa-redo"></i> Reset Progress
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Electrostatics MCQs Portal. MDCAT | NUMS | HEC | AKU | Competition Exam Preparation.</p>
+                <p>Complete coverage with 80 MCQs, 30 Conceptual Q&A, and detailed explanations without integration</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Electrostatics MCQ Data - 80 MCQs total
+        const electrostaticsMCQs = {
+            electrostatic: [
+                {
+                    id: 1,
+                    question: "If electrostatic force $F = \\frac{kq_1q_2}{r^2}$ and distance $r$ is doubled while $q_1$ is halved, force becomes:",
+                    options: ["$F/8$", "$F/4$", "$F/2$", "$2F$"],
+                    correctAnswer: 0,
+                    explanation: "$F \\propto \\frac{q_1q_2}{r^2}$. New $F' \\propto \\frac{(q_1/2)q_2}{(2r)^2} = \\frac{q_1q_2/2}{4r^2} = \\frac{1}{8} \\times \\frac{q_1q_2}{r^2} = F/8$"
+                },
+                {
+                    id: 2,
+                    question: "In equation $F = \\frac{1}{4\\pi\\epsilon}\\frac{q_1q_2}{r^2}$, if $\\epsilon$ becomes $4\\epsilon$, force becomes:",
+                    options: ["$F/4$", "$F/2$", "$2F$", "$4F$"],
+                    correctAnswer: 0,
+                    explanation: "$F \\propto 1/\\epsilon$. If $\\epsilon$ becomes $4\\epsilon$, $F$ becomes $F/4$"
+                },
+                {
+                    id: 3,
+                    question: "Three charges $+q$, $+q$, $-q$ at equilateral triangle corners. Force on $+q$ at top is:",
+                    options: ["Downward", "Upward", "Zero", "Horizontal"],
+                    correctAnswer: 0,
+                    explanation: "Forces from bottom $+q$ (repulsive, 60° down) and $-q$ (attractive, 60° down) add vectorially downward"
+                },
+                {
+                    id: 4,
+                    question: "If $Q = ne$ where $e=1.6\\times10^{-19}$C, minimum possible charge is:",
+                    options: ["$1.6\\times10^{-19}$C", "$3.2\\times10^{-19}$C", "$4.8\\times10^{-19}$C", "$0$"],
+                    correctAnswer: 0,
+                    explanation: "Charge quantization: $n=1$ gives minimum charge $e=1.6\\times10^{-19}$C"
+                },
+                {
+                    id: 5,
+                    question: "Gold leaf electroscope charged positively. When negative rod brought near:",
+                    options: ["Leaves collapse", "Leaves diverge more", "No change", "Leaves first diverge then collapse"],
+                    correctAnswer: 0,
+                    explanation: "Negative rod attracts positive charge to cap, reducing repulsion between leaves"
+                },
+                {
+                    id: 6,
+                    question: "Two identical spheres: A has $+3\\mu$C, B has $+5\\mu$C. After contact:",
+                    options: ["Each $+4\\mu$C", "A $+3\\mu$C, B $+5\\mu$C", "A $+5\\mu$C, B $+3\\mu$C", "Both neutral"],
+                    correctAnswer: 0,
+                    explanation: "Total charge $+8\\mu$C divides equally: $8/2 = 4\\mu$C each"
+                },
+                {
+                    id: 7,
+                    question: "If $F = kq_1q_2/r^2$ and $q_1$ triples, $q_2$ halves, $r$ doubles, new force is:",
+                    options: ["$3F/8$", "$3F/4$", "$3F/2$", "$2F/3$"],
+                    correctAnswer: 0,
+                    explanation: "$F' \\propto \\frac{(3q_1)(q_2/2)}{(2r)^2} = \\frac{3q_1q_2/2}{4r^2} = \\frac{3}{8} \\times \\frac{q_1q_2}{r^2} = 3F/8$"
+                },
+                {
+                    id: 8,
+                    question: "Charge conservation means in nuclear reaction:",
+                    options: ["Total charge unchanged", "Protons conserved", "Electrons conserved", "Neutrons conserved"],
+                    correctAnswer: 0,
+                    explanation: "Charge conservation: algebraic sum of charges before = after reaction"
+                }
+            ],
+            charge: [
+                {
+                    id: 1,
+                    question: "If linear charge density $\\lambda = Q/L$ and length doubled, new $\\lambda$ for same $Q$:",
+                    options: ["$\\lambda/2$", "$\\lambda$", "$2\\lambda$", "$4\\lambda$"],
+                    correctAnswer: 0,
+                    explanation: "$\\lambda = Q/L$. Double $L$: $\\lambda' = Q/(2L) = \\lambda/2$"
+                },
+                {
+                    id: 2,
+                    question: "Surface charge density $\\sigma = Q/A$. If radius of sphere doubled, new $\\sigma$:",
+                    options: ["$\\sigma/4$", "$\\sigma/2$", "$\\sigma$", "$2\\sigma$"],
+                    correctAnswer: 0,
+                    explanation: "$A = 4\\pi r^2 \\propto r^2$. Double $r$: area quadruples, so $\\sigma' = Q/(4A) = \\sigma/4$"
+                },
+                {
+                    id: 3,
+                    question: "Volume charge density $\\rho = Q/V$. If all dimensions of cube halved, new $\\rho$:",
+                    options: ["$8\\rho$", "$4\\rho$", "$2\\rho$", "$\\rho/8$"],
+                    correctAnswer: 0,
+                    explanation: "$V \\propto L^3$. Half $L$: $V$ becomes $1/8$, so $\\rho' = Q/(V/8) = 8Q/V = 8\\rho$"
+                },
+                {
+                    id: 4,
+                    question: "1 Coulomb contains approximately:",
+                    options: ["$6.25\\times10^{18}$ electrons", "$1.6\\times10^{19}$ electrons", "$6.25\\times10^{19}$ electrons", "$1.6\\times10^{18}$ electrons"],
+                    correctAnswer: 0,
+                    explanation: "$n = Q/e = 1/(1.6\\times10^{-19}) = 6.25\\times10^{18}$"
+                },
+                {
+                    id: 5,
+                    question: "Charging by induction produces charge:",
+                    options: ["Opposite to inducing charge", "Same as inducing charge", "Zero", "Double inducing charge"],
+                    correctAnswer: 0,
+                    explanation: "Induction always produces opposite charge to inducing object"
+                },
+                {
+                    id: 6,
+                    question: "Two spheres: A $+8\\mu$C, B $-2\\mu$C. After contact:",
+                    options: ["Each $+3\\mu$C", "A $+8\\mu$C, B $-2\\mu$C", "A $-2\\mu$C, B $+8\\mu$C", "Both neutral"],
+                    correctAnswer: 0,
+                    explanation: "Total charge $+8 + (-2) = +6\\mu$C. Equal division: $+3\\mu$C each"
+                },
+                {
+                    id: 7,
+                    question: "Charge invariance means electron charge:",
+                    options: ["Same at all speeds", "Increases with speed", "Decreases with speed", "Depends on direction"],
+                    correctAnswer: 0,
+                    explanation: "Charge is Lorentz invariant, unlike mass which increases with speed"
+                }
+            ],
+            coulombs: [
+                {
+                    id: 1,
+                    question: "Coulomb's law $F = kq_1q_2/r^2$ valid for:",
+                    options: ["Stationary point charges", "Moving charges", "Any size charges", "Only in conductors"],
+                    correctAnswer: 0,
+                    explanation: "Strictly for stationary point charges. Moving charges need magnetic corrections"
+                },
+                {
+                    id: 2,
+                    question: "If $F = kq_1q_2/r^2$ and $r$ increases 50%, force becomes:",
+                    options: ["$4F/9$", "$2F/3$", "$3F/4$", "$9F/4$"],
+                    correctAnswer: 0,
+                    explanation: "$r' = 1.5r$, so $F' = F/(1.5)^2 = F/2.25 = 4F/9$"
+                },
+                {
+                    id: 3,
+                    question: "Two charges $+q$ and $+4q$ distance $d$. Force on $+q$ is $F$. Force on $+4q$ is:",
+                    options: ["$F$", "$4F$", "$F/4$", "$16F$"],
+                    correctAnswer: 0,
+                    explanation: "Newton's 3rd law: equal and opposite forces"
+                },
+                {
+                    id: 4,
+                    question: "Ratio $F_{\\text{electrostatic}}/F_{\\text{gravity}}$ for protons is about:",
+                    options: ["$10^{36}$", "$10^{42}$", "$10^{24}$", "$10^{18}$"],
+                    correctAnswer: 0,
+                    explanation: "$\\frac{k e^2}{G m_p^2} \\approx 1.24\\times10^{36}$"
+                },
+                {
+                    id: 5,
+                    question: "Three equal $+q$ at equilateral triangle corners side $a$. Force on any charge:",
+                    options: ["$\\sqrt{3}kq^2/a^2$", "$kq^2/a^2$", "$2kq^2/a^2$", "$\\sqrt{2}kq^2/a^2$"],
+                    correctAnswer: 0,
+                    explanation: "Two forces $F = kq^2/a^2$ at 60°: resultant = $2F\\cos30° = \\sqrt{3}F = \\sqrt{3}kq^2/a^2$"
+                },
+                {
+                    id: 6,
+                    question: "If $F = kq_1q_2/r^2$ and both charges double while distance triples:",
+                    options: ["$4F/9$", "$4F/3$", "$2F/3$", "$9F/4$"],
+                    correctAnswer: 0,
+                    explanation: "$F' \\propto \\frac{(2q_1)(2q_2)}{(3r)^2} = \\frac{4q_1q_2}{9r^2} = \\frac{4}{9}F$"
+                },
+                {
+                    id: 7,
+                    question: "$k = 9\\times10^9$ N·m²/C² in vacuum. In medium with $\\epsilon_r=9$, effective $k$:",
+                    options: ["$1\\times10^9$", "$81\\times10^9$", "$9\\times10^9$", "$3\\times10^9$"],
+                    correctAnswer: 0,
+                    explanation: "$k_{\\text{medium}} = k/\\epsilon_r = 9\\times10^9/9 = 1\\times10^9$"
+                },
+                {
+                    id: 8,
+                    question: "Two charges $+Q$ and $-Q$ distance $d$ apart. Force between them:",
+                    options: ["Attractive, $kQ^2/d^2$", "Repulsive, $kQ^2/d^2$", "Zero", "Attractive, $2kQ^2/d^2$"],
+                    correctAnswer: 0,
+                    explanation: "Opposite charges attract with $F = kQ^2/d^2$"
+                },
+                {
+                    id: 9,
+                    question: "If Coulomb's law was $F \\propto 1/r^{3}$ instead of $1/r^2$, Gauss's law would:",
+                    options: ["Not hold", "Still hold", "Hold only for spheres", "Hold only in vacuum"],
+                    correctAnswer: 0,
+                    explanation: "Gauss's law derives from $1/r^2$ dependence. Any deviation breaks it"
+                },
+                {
+                    id: 10,
+                    question: "Superposition principle means:",
+                    options: ["Forces add vectorially", "Forces add algebraically", "Largest force wins", "Forces multiply"],
+                    correctAnswer: 0,
+                    explanation: "$\\vec{F}_{\\text{net}} = \\sum \\vec{F}_i$, vector sum"
+                },
+                {
+                    id: 11,
+                    question: "Four $+q$ at square corners side $a$. Force on any charge:",
+                    options: ["$(1+\\frac{1}{2\\sqrt{2}})\\frac{kq^2}{a^2}$", "$\\frac{kq^2}{a^2}$", "$\\frac{2kq^2}{a^2}$", "$\\frac{4kq^2}{a^2}$"],
+                    correctAnswer: 0,
+                    explanation: "From adjacent: $F_1 = kq^2/a^2$. From diagonal: $F_2 = kq^2/(2a^2\\sqrt{2})$. Resultant = $F_1 + F_2/\\sqrt{2} + F_1$ appropriately combined"
+                },
+                {
+                    id: 12,
+                    question: "If $F = kq_1q_2/r^2$ and both charges become negative:",
+                    options: ["$F$ unchanged in magnitude", "$F$ changes sign", "$F$ becomes zero", "$F$ doubles"],
+                    correctAnswer: 0,
+                    explanation: "$F_{\\text{new}} = k(-q_1)(-q_2)/r^2 = kq_1q_2/r^2 = F$, same magnitude, still repulsive"
+                },
+                {
+                    id: 13,
+                    question: "$\\hat{r}_{12}$ in $\\vec{F}_{12} = \\frac{kq_1q_2}{r_{12}^2}\\hat{r}_{12}$ is:",
+                    options: ["Unit vector from $q_1$ to $q_2$", "Unit vector from $q_2$ to $q_1$", "Radial unit vector", "Tangential unit vector"],
+                    correctAnswer: 0,
+                    explanation: "$\\hat{r}_{12}$ points from source charge $q_1$ to test charge location"
+                },
+                {
+                    id: 14,
+                    question: "Charges $+3\\mu$C and $+12\\mu$C repel with force $F$ at distance $d$. Distance for force $9F$:",
+                    options: ["$d/3$", "$d/9$", "$3d$", "$9d$"],
+                    correctAnswer: 0,
+                    explanation: "$F \\propto 1/d^2$. For $F' = 9F$, need $d'^2 = d^2/9$, so $d' = d/3$"
+                },
+                {
+                    id: 15,
+                    question: "Difference between Coulomb and gravity:",
+                    options: ["Electrostatics can be repulsive", "Gravity stronger", "Gravity has negative constant", "No equivalence principle"],
+                    correctAnswer: 0,
+                    explanation: "Main difference: gravity always attractive, electrostatics can be attractive or repulsive"
+                },
+                {
+                    id: 16,
+                    question: "If $F \\propto q_1q_2/r^2$ and $q_1$ halves, $q_2$ quadruples, $r$ doubles:",
+                    options: ["$F$ unchanged", "$F$ halves", "$F$ doubles", "$F$ quarters"],
+                    correctAnswer: 0,
+                    explanation: "$F' \\propto \\frac{(q_1/2)(4q_2)}{(2r)^2} = \\frac{2q_1q_2}{4r^2} = \\frac{1}{2}\\frac{q_1q_2}{r^2} = F/2$"
+                },
+                {
+                    id: 17,
+                    question: "Two identical $q$ separated by $d$. Midpoint electric field $E$ and potential $V$:",
+                    options: ["$E=0, V\\neq0$", "$E\\neq0, V=0$", "$E=0, V=0$", "$E\\neq0, V\\neq0$"],
+                    correctAnswer: 0,
+                    explanation: "For like charges, fields cancel ($E=0$) but potentials add ($V=2kq/(d/2)=4kq/d\\neq0$)"
+                },
+                {
+                    id: 18,
+                    question: "Coulomb's law valid approximately for distances:",
+                    options: ["Atomic to macroscopic", "Nuclear only", "Quark scales", "All equally"],
+                    correctAnswer: 0,
+                    explanation: "Valid for $\\sim10^{-10}$ m to macroscopic. Breaks down at nuclear/quantum scales"
+                },
+                {
+                    id: 19,
+                    question: "If dielectric constant $\\epsilon_r=2$ inserted between charges, force becomes:",
+                    options: ["$F/2$", "$F$", "$2F$", "$F/4$"],
+                    correctAnswer: 0,
+                    explanation: "$F_{\\text{medium}} = F/\\epsilon_r = F/2$"
+                },
+                {
+                    id: 20,
+                    question: "Two charges $+q$ and $+4q$ distance $d$. Zero force point on test charge:",
+                    options: ["$d/3$ from $+q$", "$d/2$ from $+q$", "$2d/3$ from $+q$", "$3d/4$ from $+q$"],
+                    correctAnswer: 0,
+                    explanation: "$\\frac{q}{x^2} = \\frac{4q}{(d-x)^2} \\Rightarrow (d-x)^2=4x^2 \\Rightarrow d-x=2x \\Rightarrow d=3x \\Rightarrow x=d/3$ from $+q$"
+                }
+            ],
+            permittivity: [
+                {
+                    id: 1,
+                    question: "Relative permittivity $\\epsilon_r$ is also called:",
+                    options: ["Dielectric constant", "Conductivity", "Susceptibility", "Permeability"],
+                    correctAnswer: 0,
+                    explanation: "$\\epsilon_r = \\epsilon/\\epsilon_0$ is dielectric constant, dimensionless"
+                },
+                {
+                    id: 2,
+                    question: "If $F_{\\text{vac}} = kq_1q_2/r^2$ and $F_{\\text{med}} = F_{\\text{vac}}/\\epsilon_r$, for water $\\epsilon_r \\approx 80$, force:",
+                    options: ["~1.25% of vacuum", "~12.5% of vacuum", "~80% of vacuum", "~125% of vacuum"],
+                    correctAnswer: 0,
+                    explanation: "$F_{\\text{water}} = F_{\\text{vac}}/80 = 0.0125F_{\\text{vac}} = 1.25\\%$"
+                },
+                {
+                    id: 3,
+                    question: "Polarization $P$ related to $E$ by:",
+                    options: ["$P = \\epsilon_0\\chi_e E$", "$P = \\epsilon_0 E$", "$P = \\chi_e/E$", "$P = \\epsilon_0/\\chi_e E$"],
+                    correctAnswer: 0,
+                    explanation: "Electric susceptibility $\\chi_e$: $P = \\epsilon_0\\chi_e E$"
+                },
+                {
+                    id: 4,
+                    question: "Displacement field $D = \\epsilon_0 E + P$. In linear medium:",
+                    options: ["$D = \\epsilon_0\\epsilon_r E$", "$D = \\epsilon_0 E$", "$D = P$", "$D = \\epsilon_0/E$"],
+                    correctAnswer: 0,
+                    explanation: "$D = \\epsilon_0 E + \\epsilon_0\\chi_e E = \\epsilon_0(1+\\chi_e)E = \\epsilon_0\\epsilon_r E$"
+                },
+                {
+                    id: 5,
+                    question: "If $\\epsilon_r = 1 + \\chi_e$ and $\\chi_e = 7$, $\\epsilon_r$ is:",
+                    options: ["8", "7", "6", "1"],
+                    correctAnswer: 0,
+                    explanation: "$\\epsilon_r = 1 + 7 = 8$"
+                },
+                {
+                    id: 6,
+                    question: "For vacuum, $\\epsilon_r$ is:",
+                    options: ["1", "0", "$8.85\\times10^{-12}$", "Infinite"],
+                    correctAnswer: 0,
+                    explanation: "By definition, vacuum $\\epsilon_r = 1$"
+                },
+                {
+                    id: 7,
+                    question: "Ferroelectric material has $\\epsilon_r$ that:",
+                    options: ["Depends on electric field", "Is always 1", "Is negative", "Is zero"],
+                    correctAnswer: 0,
+                    explanation: "Ferroelectrics show non-linear polarization and hysteresis"
+                },
+                {
+                    id: 8,
+                    question: "If force in medium $F_m$ and in vacuum $F_v$, $\\epsilon_r =$",
+                    options: ["$F_v/F_m$", "$F_m/F_v$", "$\\sqrt{F_v/F_m}$", "$(F_v/F_m)^2$"],
+                    correctAnswer: 0,
+                    explanation: "$F_m = F_v/\\epsilon_r \\Rightarrow \\epsilon_r = F_v/F_m$"
+                },
+                {
+                    id: 9,
+                    question: "Dielectric breakdown occurs when:",
+                    options: ["$E > E_{\\text{max}}$", "$\\epsilon_r > 10$", "Temperature high", "Charge density low"],
+                    correctAnswer: 0,
+                    explanation: "Breakdown field $E_{\\text{max}}$: material ionizes, becomes conductive"
+                },
+                {
+                    id: 10,
+                    question: "Capacitance with dielectric $C = \\epsilon_r C_0$. If $\\epsilon_r$ triples:",
+                    options: ["$C$ triples", "$C$ halves", "$C$ thirds", "$C$ unchanged"],
+                    correctAnswer: 0,
+                    explanation: "$C \\propto \\epsilon_r$, so triples if $\\epsilon_r$ triples"
+                }
+            ],
+            field: [
+                {
+                    id: 1,
+                    question: "Electric field $E$ due to point charge $q$:",
+                    options: ["$E = kq/r^2$ radially", "$E = kq/r$", "$E = kq^2/r^2$", "$E = k/r^2$"],
+                    correctAnswer: 0,
+                    explanation: "$\\vec{E} = \\frac{kq}{r^2}\\hat{r}$, radial: outward if $q>0$, inward if $q<0$"
+                },
+                {
+                    id: 2,
+                    question: "Field due to infinite line charge density $\\lambda$:",
+                    options: ["$E = \\frac{\\lambda}{2\\pi\\epsilon_0 r}$ radial", "$E = \\frac{\\lambda}{4\\pi\\epsilon_0 r^2}$", "$E = \\frac{\\lambda}{2\\pi\\epsilon_0 r^2}$", "$E = \\frac{\\lambda}{\\pi\\epsilon_0 r}$"],
+                    correctAnswer: 0,
+                    explanation: "Cylindrical symmetry: $E = \\lambda/(2\\pi\\epsilon_0 r)$ radial"
+                },
+                {
+                    id: 3,
+                    question: "Field due to infinite sheet charge density $\\sigma$:",
+                    options: ["$E = \\frac{\\sigma}{2\\epsilon_0}$ normal", "$E = \\frac{\\sigma}{\\epsilon_0}$", "$E = \\frac{\\sigma}{4\\pi\\epsilon_0}$", "$E = \\frac{\\sigma}{2\\pi\\epsilon_0}$"],
+                    correctAnswer: 0,
+                    explanation: "Planar symmetry: $E = \\sigma/(2\\epsilon_0)$ each side"
+                },
+                {
+                    id: 4,
+                    question: "Field between parallel plates with $+\\sigma$ and $-\\sigma$:",
+                    options: ["$E = \\frac{\\sigma}{\\epsilon_0}$ uniform", "$E = \\frac{\\sigma}{2\\epsilon_0}$", "$E = \\frac{2\\sigma}{\\epsilon_0}$", "$E = 0$"],
+                    correctAnswer: 0,
+                    explanation: "Fields add: $E = \\sigma/(2\\epsilon_0) + \\sigma/(2\\epsilon_0) = \\sigma/\\epsilon_0$ between, zero outside"
+                },
+                {
+                    id: 5,
+                    question: "Electric field lines:",
+                    options: ["Start on +ve, end on -ve", "Start on -ve, end on +ve", "Form closed loops", "No relation to charge"],
+                    correctAnswer: 0,
+                    explanation: "Field lines begin at positive charges, end at negative charges"
+                },
+                {
+                    id: 6,
+                    question: "If $\\vec{E} = -\\nabla V$, then field is:",
+                    options: ["Conservative", "Non-conservative", "Always zero", "Always constant"],
+                    correctAnswer: 0,
+                    explanation: "Derivable from scalar potential $V$ implies conservative: $\\oint \\vec{E}\\cdot d\\vec{l} = 0$"
+                },
+                {
+                    id: 7,
+                    question: "Gauss's law valid for:",
+                    options: ["Any closed surface", "Only spheres", "Only symmetric surfaces", "Only flat surfaces"],
+                    correctAnswer: 0,
+                    explanation: "Holds for any closed Gaussian surface"
+                },
+                {
+                    id: 8,
+                    question: "Field inside uniformly charged solid sphere radius $R$, charge $Q$:",
+                    options: ["$E = \\frac{kQr}{R^3}$", "$E = \\frac{kQ}{r^2}$", "$E = 0$", "$E = \\frac{kQ}{R^2}$"],
+                    correctAnswer: 0,
+                    explanation: "Inside: $E = (kQr)/R^3$, linear with $r$, zero at center"
+                },
+                {
+                    id: 9,
+                    question: "Field outside uniformly charged spherical shell:",
+                    options: ["$E = \\frac{kQ}{r^2}$ like point", "$E = 0$", "$E = \\frac{kQ}{R^2}$", "$E = \\frac{kQr}{R^3}$"],
+                    correctAnswer: 0,
+                    explanation: "Outside: all charge $Q$ appears at center: $E = kQ/r^2$"
+                },
+                {
+                    id: 10,
+                    question: "Field inside conducting sphere with charge $Q$:",
+                    options: ["$E = 0$", "$E = \\frac{kQ}{R^2}$", "$E = \\frac{kQr}{R^3}$", "$E = \\frac{kQ}{r^2}$"],
+                    correctAnswer: 0,
+                    explanation: "In electrostatic equilibrium, $E=0$ inside conductor"
+                },
+                {
+                    id: 11,
+                    question: "Dipole moment $\\vec{p} = q\\vec{d}$. Field on axial line at $r \\gg d$:",
+                    options: ["$E = \\frac{2kp}{r^3}$ along $\\vec{p}$", "$E = \\frac{kp}{r^3}$", "$E = \\frac{kp}{r^2}$", "$E = \\frac{2kp}{r^2}$"],
+                    correctAnswer: 0,
+                    explanation: "Axial: $E = \\frac{1}{4\\pi\\epsilon_0}\\frac{2p}{r^3}$ along dipole moment"
+                },
+                {
+                    id: 12,
+                    question: "Field on equatorial line of dipole:",
+                    options: ["$E = \\frac{kp}{r^3}$ opposite $\\vec{p}$", "$E = \\frac{2kp}{r^3}$", "$E = \\frac{kp}{r^2}$", "$E = 0$"],
+                    correctAnswer: 0,
+                    explanation: "Equatorial: $E = \\frac{1}{4\\pi\\epsilon_0}\\frac{p}{r^3}$ opposite to $\\vec{p}$"
+                },
+                {
+                    id: 13,
+                    question: "If all dimensions scaled by 2, field due to point charge at scaled position:",
+                    options: ["1/4 of original", "Same", "Double", "Quadruple"],
+                    correctAnswer: 0,
+                    explanation: "$E \\propto 1/r^2$. Double distance: $E$ becomes 1/4"
+                },
+                {
+                    id: 14,
+                    question: "Work done moving charge $q$ in field $\\vec{E}$ from A to B:",
+                    options: ["$W = q\\int_A^B \\vec{E}\\cdot d\\vec{l}$", "$W = \\int_A^B \\vec{E}\\cdot d\\vec{l}$", "$W = q(\\vec{E}\\cdot\\vec{d})$", "$W = qE$"],
+                    correctAnswer: 0,
+                    explanation: "Work $W = \\int \\vec{F}\\cdot d\\vec{l} = q\\int \\vec{E}\\cdot d\\vec{l}$"
+                },
+                {
+                    id: 15,
+                    question: "Electric flux $\\Phi_E = \\oint \\vec{E}\\cdot d\\vec{A}$. Units:",
+                    options: ["N·m²/C", "N/C", "C/N", "J/C"],
+                    correctAnswer: 0,
+                    explanation: "$[E] = N/C, [A] = m^2$, so $[\\Phi_E] = N·m²/C$"
+                },
+                {
+                    id: 16,
+                    question: "If $\\vec{E}$ uniform, flux through plane area $A$ at angle $\\theta$:",
+                    options: ["$EA\\cos\\theta$", "$EA\\sin\\theta$", "$EA$", "$E/A\\cos\\theta$"],
+                    correctAnswer: 0,
+                    explanation: "$\\Phi = \\vec{E}\\cdot\\vec{A} = EA\\cos\\theta$"
+                },
+                {
+                    id: 17,
+                    question: "Field just outside charged conductor:",
+                    options: ["$E = \\frac{\\sigma}{\\epsilon_0}$ normal", "$E = \\frac{\\sigma}{2\\epsilon_0}$", "$E = 0$", "$E = \\frac{\\sigma}{\\epsilon_0}$ tangential"],
+                    correctAnswer: 0,
+                    explanation: "Gauss's law: $E = \\sigma/\\epsilon_0$ normal to surface"
+                },
+                {
+                    id: 18,
+                    question: "If electric field lines parallel equally spaced:",
+                    options: ["$\\vec{E}$ uniform", "$\\vec{E}$ zero", "$\\vec{E}$ radial", "$\\vec{E}$ circular"],
+                    correctAnswer: 0,
+                    explanation: "Parallel equally spaced lines indicate uniform field"
+                },
+                {
+                    id: 19,
+                    question: "Field at center of uniformly charged ring radius $R$, charge $Q$:",
+                    options: ["Zero", "$\\frac{kQ}{R^2}$", "$\\frac{kQ}{2R^2}$", "$\\frac{kQ}{\\pi R^2}$"],
+                    correctAnswer: 0,
+                    explanation: "Symmetry: contributions cancel, $E=0$ at center"
+                },
+                {
+                    id: 20,
+                    question: "Field on axis of charged ring distance $x$ from center:",
+                    options: ["$E = \\frac{kQx}{(x^2+R^2)^{3/2}}$ along axis", "$E = \\frac{kQ}{x^2+R^2}$", "$E = \\frac{kQx}{x^2+R^2}$", "$E = \\frac{kQ}{(x^2+R^2)^{3/2}}$"],
+                    correctAnswer: 0,
+                    explanation: "On axis: $E = \\frac{1}{4\\pi\\epsilon_0}\\frac{Qx}{(x^2+R^2)^{3/2}}$ along axis"
+                },
+                {
+                    id: 21,
+                    question: "If $\\vec{E} = E_0\\hat{i}$ uniform, flux through cube side $a$:",
+                    options: ["Zero", "$E_0a^2$", "$2E_0a^2$", "$6E_0a^2$"],
+                    correctAnswer: 0,
+                    explanation: "Equal flux enters and exits opposite faces, net zero if no charge inside"
+                },
+                {
+                    id: 22,
+                    question: "Field inside hollow charged spherical shell:",
+                    options: ["Zero", "$\\frac{kQ}{R^2}$", "$\\frac{kQr}{R^3}$", "$\\frac{kQ}{r^2}$"],
+                    correctAnswer: 0,
+                    explanation: "Gauss's law: $q_{\\text{enc}}=0$ inside, so $E=0$"
+                },
+                {
+                    id: 23,
+                    question: "If $\\oint \\vec{E}\\cdot d\\vec{A} = 0$, then:",
+                    options: ["Net charge inside may be zero", "No charge anywhere", "$\\vec{E}=0$ everywhere", "Only positive charges"],
+                    correctAnswer: 0,
+                    explanation: "Zero flux means net charge inside zero, but could have equal +ve/-ve"
+                },
+                {
+                    id: 24,
+                    question: "Field due to infinite sheet $E = \\sigma/(2\\epsilon_0)$. If two sheets $+\\sigma$ and $-\\sigma$ parallel:",
+                    options: ["Between: $E=\\sigma/\\epsilon_0$, outside: $0$", "Between: $0$, outside: $\\sigma/\\epsilon_0$", "Everywhere $\\sigma/(2\\epsilon_0)$", "Everywhere $0$"],
+                    correctAnswer: 0,
+                    explanation: "Fields add between ($\\sigma/\\epsilon_0$), cancel outside ($0$)"
+                },
+                {
+                    id: 25,
+                    question: "$D = \\epsilon E$ in linear medium. If $\\epsilon_r=4$, $D=2\\times10^{-5}$ C/m², then $E$:",
+                    options: ["~$5.65\\times10^5$ V/m", "~$2.26\\times10^6$ V/m", "~$1.13\\times10^5$ V/m", "~$8.85\\times10^5$ V/m"],
+                    correctAnswer: 0,
+                    explanation: "$E = D/\\epsilon = D/(\\epsilon_0\\epsilon_r) = (2\\times10^{-5})/(8.85\\times10^{-12} \\times 4) \\approx 5.65\\times10^5$ V/m"
+                },
+                {
+                    id: 26,
+                    question: "Field at point due to several charges:",
+                    options: ["Vector sum of individual", "Algebraic sum", "Product", "Largest"],
+                    correctAnswer: 0,
+                    explanation: "Superposition: $\\vec{E}_{\\text{total}} = \\sum \\vec{E}_i$"
+                },
+                {
+                    id: 27,
+                    question: "Zero field point between $+4q$ and $+q$ distance $d$:",
+                    options: ["$d/3$ from $+q$", "$d/2$ from $+q$", "$2d/3$ from $+q$", "$3d/4$ from $+q$"],
+                    correctAnswer: 0,
+                    explanation: "$\\frac{4q}{x^2} = \\frac{q}{(d-x)^2} \\Rightarrow x=2d/3$ from $+4q$, so $d/3$ from $+q$"
+                },
+                {
+                    id: 28,
+                    question: "If electric field triples, force on charge $q$:",
+                    options: ["Triples", "Same", "1/3", "9 times"],
+                    correctAnswer: 0,
+                    explanation: "$F = qE$, so $F \\propto E$"
+                },
+                {
+                    id: 29,
+                    question: "Field inside dielectric compared to external:",
+                    options: ["Reduced by $\\epsilon_r$", "Same", "Increased", "Zero"],
+                    correctAnswer: 0,
+                    explanation: "$E = E_0/\\epsilon_r$ due to opposing polarization field"
+                },
+                {
+                    id: 30,
+                    question: "For two infinite sheets $+\\sigma$ and $-\\sigma$, field between is $E = \\sigma/\\epsilon_0$. If $\\sigma$ doubles:",
+                    options: ["$E$ doubles", "$E$ halves", "$E$ quadruples", "$E$ unchanged"],
+                    correctAnswer: 0,
+                    explanation: "$E \\propto \\sigma$, so doubles if $\\sigma$ doubles"
+                },
+                {
+                    id: 31,
+                    question: "Field due to point charge $E = kq/r^2$. If $q$ halves and $r$ doubles:",
+                    options: ["$E/8$", "$E/4$", "$E/2$", "$E$"],
+                    correctAnswer: 0,
+                    explanation: "$E' \\propto \\frac{q/2}{(2r)^2} = \\frac{q/2}{4r^2} = \\frac{1}{8} \\times \\frac{q}{r^2} = E/8$"
+                },
+                {
+                    id: 32,
+                    question: "Electric field lines density represents:",
+                    options: ["Field strength", "Potential", "Charge sign", "Energy"],
+                    correctAnswer: 0,
+                    explanation: "Lines per unit area ∝ field magnitude"
+                },
+                {
+                    id: 33,
+                    question: "Field inside conductor in equilibrium:",
+                    options: ["Zero", "Uniform", "Radial", "Circular"],
+                    correctAnswer: 0,
+                    explanation: "$E=0$ inside conductor in electrostatic equilibrium"
+                },
+                {
+                    id: 34,
+                    question: "If dipole moment $\\vec{p}$ doubles, electric field at fixed distance:",
+                    options: ["Doubles", "Halves", "Quadruples", "Unchanged"],
+                    correctAnswer: 0,
+                    explanation: "$E \\propto p$ for dipole field"
+                },
+                {
+                    id: 35,
+                    question: "For spherical charge distribution, outside field:",
+                    options: ["Like point charge at center", "Zero", "Constant", "Increases with distance"],
+                    correctAnswer: 0,
+                    explanation: "Outside: $E = kQ/r^2$ like all charge at center"
+                }
+            ]
+        };
+
+        // Progress tracking
+        let progress = {
+            electrostatic: Array(electrostaticsMCQs.electrostatic.length).fill(false),
+            charge: Array(electrostaticsMCQs.charge.length).fill(false),
+            coulombs: Array(electrostaticsMCQs.coulombs.length).fill(false),
+            permittivity: Array(electrostaticsMCQs.permittivity.length).fill(false),
+            field: Array(electrostaticsMCQs.field.length).fill(false)
+        };
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize the application
+            initApp();
+            
+            function initApp() {
+                // Set up event listeners for welcome screen
+                document.getElementById('start-btn').addEventListener('click', () => {
+                    document.getElementById('welcome-overlay').classList.add('hidden');
+                });
+                
+                // Hide welcome animation after delay
+                setTimeout(() => {
+                    document.getElementById('welcome-overlay').classList.add('hidden');
+                }, 5000);
+                
+                // Load progress from localStorage
+                loadProgress();
+                
+                // Set up tab navigation
+                setupTabs();
+                
+                // Set up event listeners
+                setupEventListeners();
+                
+                // Load MCQs
+                loadAllMCQs();
+                
+                // Update progress display
+                updateProgress();
+                
+                // Apply animations
+                applyAnimations();
+                
+                // Render KaTeX equations
+                renderKaTeX();
+            }
+            
+            function setupTabs() {
+                const tabButtons = document.querySelectorAll('.nav-btn[data-tab]');
+                const tabContents = document.querySelectorAll('.tab-content');
+                
+                tabButtons.forEach(button => {
+                    button.addEventListener('click', () => {
+                        const tabId = button.getAttribute('data-tab');
+                        
+                        // Update active tab button
+                        tabButtons.forEach(btn => btn.classList.remove('active'));
+                        button.classList.add('active');
+                        
+                        // Show active content
+                        tabContents.forEach(content => content.classList.remove('active'));
+                        document.getElementById(`${tabId}-tab`).classList.add('active');
+                        
+                        // Re-render KaTeX for new content
+                        setTimeout(renderKaTeX, 100);
+                    });
+                });
+            }
+            
+            function setupEventListeners() {
+                // Hamburger menu toggle
+                document.getElementById('menu-toggle').addEventListener('click', toggleMenu);
+                
+                // Theme toggle
+                document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+                
+                // Refresh buttons for each topic
+                document.getElementById('refresh-electrostatic').addEventListener('click', () => loadTopicMCQs('electrostatic'));
+                document.getElementById('refresh-charge').addEventListener('click', () => loadTopicMCQs('charge'));
+                document.getElementById('refresh-coulombs').addEventListener('click', () => loadTopicMCQs('coulombs'));
+                document.getElementById('refresh-permittivity').addEventListener('click', () => loadTopicMCQs('permittivity'));
+                document.getElementById('refresh-field').addEventListener('click', () => loadTopicMCQs('field'));
+                
+                // Reset progress button
+                document.getElementById('reset-progress').addEventListener('click', resetProgress);
+            }
+            
+            function toggleMenu() {
+                const menuToggle = document.getElementById('menu-toggle');
+                const mainNav = document.getElementById('main-nav');
+                
+                menuToggle.classList.toggle('active');
+                mainNav.classList.toggle('active');
+            }
+            
+            function toggleTheme() {
+                const themeToggle = document.getElementById('theme-toggle');
+                document.body.classList.toggle('dark-mode');
+                themeToggle.classList.toggle('dark');
+                saveToLocalStorage('darkMode', document.body.classList.contains('dark-mode'));
+            }
+            
+            function loadAllMCQs() {
+                // Load MCQs for each topic
+                loadTopicMCQs('electrostatic');
+                loadTopicMCQs('charge');
+                loadTopicMCQs('coulombs');
+                loadTopicMCQs('permittivity');
+                loadTopicMCQs('field');
+            }
+            
+            function loadTopicMCQs(topic) {
+                const container = document.getElementById(`${topic}-mcqs-container`);
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                // Randomize order of MCQs for this topic
+                const shuffledMCQs = [...electrostaticsMCQs[topic]].sort(() => Math.random() - 0.5);
+                
+                shuffledMCQs.forEach(mcq => {
+                    const mcqCard = createMCQCard(mcq, topic);
+                    container.appendChild(mcqCard);
+                });
+                
+                // Re-render KaTeX
+                setTimeout(renderKaTeX, 100);
+            }
+            
+            function createMCQCard(mcq, topic) {
+                const card = document.createElement('div');
+                card.className = 'card mcq-card fade-in';
+                card.id = `${topic}-mcq-${mcq.id}`;
+                
+                // Check if this MCQ has been completed
+                const isCompleted = progress[topic][mcq.id - 1];
+                
+                // Randomize option order
+                const options = [...mcq.options];
+                const correctAnswer = mcq.correctAnswer;
+                const correctOption = options[correctAnswer];
+                
+                // Shuffle options
+                for (let i = options.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [options[i], options[j]] = [options[j], options[i]];
+                }
+                
+                // Find new index of correct answer after shuffling
+                const newCorrectIndex = options.indexOf(correctOption);
+                
+                card.innerHTML = `
+                    <div class="mcq-info">
+                        <div class="mcq-id">MCQ #${mcq.id} ${isCompleted ? '<i class="fas fa-check" style="color: var(--success); margin-left: 4.05px;"></i>' : ''}</div>
+                        <div class="mcq-subject">${getTopicName(topic)}</div>
+                        <div class="mcq-question">${mcq.question}</div>
+                        <div class="mcq-options">
+                            ${options.map((option, index) => `
+                                <div class="mcq-option" data-option="${index}" data-correct="${index === newCorrectIndex}">${String.fromCharCode(65 + index)}) ${option}</div>
+                            `).join('')}
+                        </div>
+                        <div class="mcq-explanation">
+                            <div class="explanation-title">Explanation:</div>
+                            <div class="explanation-content">${mcq.explanation}</div>
+                        </div>
+                    </div>
+                    <div class="mcq-actions">
+                        <button class="btn btn-primary check-answer-btn">
+                            <i class="fas fa-check"></i> Check Answer
+                        </button>
+                        <button class="btn btn-secondary show-explanation-btn">
+                            <i class="fas fa-lightbulb"></i> Show Explanation
+                        </button>
+                    </div>
+                `;
+                
+                // Add event listeners
+                const checkAnswerBtn = card.querySelector('.check-answer-btn');
+                const showExplanationBtn = card.querySelector('.show-explanation-btn');
+                const optionElements = card.querySelectorAll('.mcq-option');
+                
+                let selectedOption = null;
+                
+                // If already completed, show the correct answer
+                if (isCompleted) {
+                    const correctOptionElement = card.querySelector('.mcq-option[data-correct="true"]');
+                    correctOptionElement.classList.add('correct');
+                    
+                    optionElements.forEach(option => {
+                        option.style.pointerEvents = 'none';
+                    });
+                    
+                    checkAnswerBtn.disabled = true;
+                    checkAnswerBtn.innerHTML = '<i class="fas fa-check"></i> Completed';
+                } else {
+                    optionElements.forEach(option => {
+                        option.addEventListener('click', () => {
+                            optionElements.forEach(opt => opt.classList.remove('selected'));
+                            option.classList.add('selected');
+                            selectedOption = parseInt(option.getAttribute('data-option'));
+                        });
+                    });
+                    
+                    checkAnswerBtn.addEventListener('click', () => {
+                        if (selectedOption === null) {
+                            alert('Please select an answer first!');
+                            return;
+                        }
+                        
+                        optionElements.forEach(option => {
+                            option.classList.remove('correct', 'incorrect');
+                        });
+                        
+                        const correctOptionElement = card.querySelector('.mcq-option[data-correct="true"]');
+                        correctOptionElement.classList.add('correct');
+                        
+                        const selectedOptionElement = card.querySelector(`.mcq-option[data-option="${selectedOption}"]`);
+                        const isCorrect = selectedOptionElement.getAttribute('data-correct') === 'true';
+                        
+                        if (!isCorrect) {
+                            selectedOptionElement.classList.add('incorrect');
+                        } else {
+                            // Mark as completed
+                            progress[topic][mcq.id - 1] = true;
+                            saveProgress();
+                            updateProgress();
+                            
+                            const mcqId = card.querySelector('.mcq-id');
+                            mcqId.innerHTML = `MCQ #${mcq.id} <i class="fas fa-check" style="color: var(--success); margin-left: 4.05px;"></i>`;
+                            
+                            optionElements.forEach(option => {
+                                option.style.pointerEvents = 'none';
+                            });
+                            
+                            checkAnswerBtn.disabled = true;
+                            checkAnswerBtn.innerHTML = '<i class="fas fa-check"></i> Completed';
+                        }
+                    });
+                }
+                
+                showExplanationBtn.addEventListener('click', () => {
+                    const explanation = card.querySelector('.mcq-explanation');
+                    explanation.classList.toggle('show');
+                });
+                
+                return card;
+            }
+            
+            function getTopicName(topic) {
+                const names = {
+                    electrostatic: 'Electrostatic Fundamentals',
+                    charge: 'Charge Properties',
+                    coulombs: "Coulomb's Law",
+                    permittivity: 'Permittivity & Dielectrics',
+                    field: 'Electric Field'
+                };
+                return names[topic] || topic;
+            }
+            
+            function updateProgress() {
+                // Calculate completion counts
+                const electrostaticCompleted = progress.electrostatic.filter(Boolean).length;
+                const chargeCompleted = progress.charge.filter(Boolean).length;
+                const coulombsCompleted = progress.coulombs.filter(Boolean).length;
+                const permittivityCompleted = progress.permittivity.filter(Boolean).length;
+                const fieldCompleted = progress.field.filter(Boolean).length;
+                
+                const totalCompleted = electrostaticCompleted + chargeCompleted + coulombsCompleted + permittivityCompleted + fieldCompleted;
+                
+                // Calculate accuracy
+                const totalAttempted = Object.values(progress).flat().filter(x => x !== false).length;
+                const accuracy = totalAttempted > 0 ? Math.round((totalCompleted / totalAttempted) * 100) : 0;
+                
+                // Update stats
+                document.getElementById('completed-mcqs').textContent = totalCompleted;
+                document.getElementById('accuracy').textContent = `${accuracy}%`;
+                
+                // Update topic progress
+                document.getElementById('electrostatic-completed').textContent = electrostaticCompleted;
+                document.getElementById('electrostatic-progress').style.width = `${(electrostaticCompleted / 8) * 100}%`;
+                
+                document.getElementById('charge-completed').textContent = chargeCompleted;
+                document.getElementById('charge-progress').style.width = `${(chargeCompleted / 7) * 100}%`;
+                
+                document.getElementById('coulombs-completed').textContent = coulombsCompleted;
+                document.getElementById('coulombs-progress').style.width = `${(coulombsCompleted / 20) * 100}%`;
+                
+                document.getElementById('permittivity-completed').textContent = permittivityCompleted;
+                document.getElementById('permittivity-progress').style.width = `${(permittivityCompleted / 10) * 100}%`;
+                
+                document.getElementById('field-completed').textContent = fieldCompleted;
+                document.getElementById('field-progress').style.width = `${(fieldCompleted / 35) * 100}%`;
+                
+                // Update overall progress
+                document.getElementById('overall-completed').textContent = totalCompleted;
+                document.getElementById('overall-progress').style.width = `${(totalCompleted / 80) * 100}%`;
+                
+                // Update summary
+                document.getElementById('electrostatic-summary').textContent = electrostaticCompleted;
+                document.getElementById('charge-summary').textContent = chargeCompleted;
+                document.getElementById('coulombs-summary').textContent = coulombsCompleted;
+                document.getElementById('permittivity-summary').textContent = permittivityCompleted;
+                document.getElementById('field-summary').textContent = fieldCompleted;
+                
+                document.getElementById('electrostatic-summary-progress').style.width = `${(electrostaticCompleted / 8) * 100}%`;
+                document.getElementById('charge-summary-progress').style.width = `${(chargeCompleted / 7) * 100}%`;
+                document.getElementById('coulombs-summary-progress').style.width = `${(coulombsCompleted / 20) * 100}%`;
+                document.getElementById('permittivity-summary-progress').style.width = `${(permittivityCompleted / 10) * 100}%`;
+                document.getElementById('field-summary-progress').style.width = `${(fieldCompleted / 35) * 100}%`;
+            }
+            
+            function resetProgress() {
+                if (confirm('Are you sure you want to reset all progress? This action cannot be undone.')) {
+                    progress = {
+                        electrostatic: Array(8).fill(false),
+                        charge: Array(7).fill(false),
+                        coulombs: Array(20).fill(false),
+                        permittivity: Array(10).fill(false),
+                        field: Array(35).fill(false)
+                    };
+                    saveProgress();
+                    updateProgress();
+                    loadAllMCQs();
+                }
+            }
+            
+            function saveProgress() {
+                saveToLocalStorage('electrostaticsProgress', progress);
+            }
+            
+            function loadProgress() {
+                const savedProgress = getFromLocalStorage('electrostaticsProgress');
+                if (savedProgress) {
+                    // Ensure all arrays have correct length
+                    progress = {
+                        electrostatic: savedProgress.electrostatic || Array(8).fill(false),
+                        charge: savedProgress.charge || Array(7).fill(false),
+                        coulombs: savedProgress.coulombs || Array(20).fill(false),
+                        permittivity: savedProgress.permittivity || Array(10).fill(false),
+                        field: savedProgress.field || Array(35).fill(false)
+                    };
+                }
+            }
+            
+            function applyAnimations() {
+                const elements = document.querySelectorAll('.panel, .card, .nav-btn');
+                elements.forEach((element, index) => {
+                    setTimeout(() => {
+                        element.classList.add('fade-in');
+                    }, index * 50);
+                });
+            }
+            
+            function renderKaTeX() {
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(document.body, {
+                        delimiters: [
+                            {left: '$$', right: '$$', display: true},
+                            {left: '$', right: '$', display: false},
+                            {left: '\\(', right: '\\)', display: false},
+                            {left: '\\[', right: '\\]', display: true}
+                        ],
+                        throwOnError: false
+                    });
+                }
+            }
+            
+            function saveToLocalStorage(key, value) {
+                try {
+                    localStorage.setItem(key, JSON.stringify(value));
+                } catch (e) {
+                    console.error('Error saving to localStorage:', e);
+                }
+            }
+            
+            function getFromLocalStorage(key) {
+                try {
+                    const value = localStorage.getItem(key);
+                    return value ? JSON.parse(value) : null;
+                } catch (e) {
+                    console.error('Error reading from localStorage:', e);
+                    return null;
+                }
+            }
+            
+            // Load dark mode setting
+            const darkMode = getFromLocalStorage('darkMode');
+            if (darkMode) {
+                document.body.classList.add('dark-mode');
+                document.getElementById('theme-toggle').classList.add('dark');
+            }
+        });
+    </script>
+</body>
+</html>
